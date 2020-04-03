@@ -44,4 +44,10 @@ void tarjan(int u){
     current_scc++;
   }
 }
-
+void init_tarjan(){
+	memset(d,-1,sizeof d);
+	while(!s.empty())s.pop();
+	memset(stacked,0,sizeof stacked);
+	ticks=0;
+	current_scc=0;
+}

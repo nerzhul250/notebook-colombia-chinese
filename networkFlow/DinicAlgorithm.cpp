@@ -1,4 +1,6 @@
 //Solves MAXflow in O(V^2 * E)
+//O(E* sqrt(V)) if graph is unitary hehe (unit capacities)
+//O(E * log(v) ) if graph is maybe... a dag or bipartite?
 struct FlowEdge {
     int v, u;
     long long cap, flow = 0;
