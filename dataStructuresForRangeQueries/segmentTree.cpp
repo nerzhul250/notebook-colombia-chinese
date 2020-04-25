@@ -1,33 +1,28 @@
-void build(ll a[], int v, int tl, int tr,ll t[]) {
-    if (tl == tr) {
-        t[v] = a[tl];
-    } else {
-        int tm = (tl + tr) / 2;
-        build(a, v*2, tl, tm,t);
-        build(a, v*2+1, tm+1, tr,t);
-        t[v] = 0;
-    }
-}
-
-void update(int v, int tl, int tr, int l, int r, ll add,ll t[]) {
-    if (l > r)
-        return;
-    if (l == tl && r == tr) {
-        t[v] += add;
-    } else {
-        int tm = (tl + tr) / 2;
-        update(v*2, tl, tm, l, min(r, tm), add,t);
-        update(v*2+1, tm+1, tr, max(l, tm+1), r, add,t);
-    }
-}
-
-ll get(int v, int tl, int tr, int pos,ll t[]) {
-    if (tl == tr)
-        return t[v];
-    int tm = (tl + tr) / 2;
-    if (pos <= tm)
-        return t[v] + get(v*2, tl, tm, pos,t);
-    else
-        return t[v] + get(v*2+1, tm+1, tr, pos,t);
-}
-
+#define oper min
+#define NEUT INF
+struct STree { // segment tree for min over integers
+	vector<int> st;int n;
+	STree(int n): st(4*n+5,NEUT), n(n) {}
+	void init(int k, int s, int e, int *a){
+		if(s+1==e){st[k]=a[s];return;}
+		int m=(s+e)/2;
+		init(2*k,s,m,a);init(2*k+1,m,e,a);
+		st[k]=oper(st[2*k],st[2*k+1]);
+	}
+	void upd(int k, int s, int e, int p, int v){
+		if(s+1==e){st[k]=v;return;}
+		int m=(s+e)/2;
+		if(p<m)upd(2*k,s,m,p,v);
+		else upd(2*k+1,m,e,p,v);
+		st[k]=oper(st[2*k],st[2*k+1]);
+	}
+	int query(int k, int s, int e, int a, int b){
+		if(s>=b||e<=a)return NEUT;
+		if(s>=a&&e<=b)return st[k];
+		int m=(s+e)/2;
+		return oper(query(2*k,s,m,a,b),query(2*k+1,m,e,a,b));
+	}
+	void init(int *a){init(1,0,n,a);}
+	void upd(int p, int v){upd(1,0,n,p,v);}
+	int query(int a, int b){return query(1,0,n,a,b);}
+}; // usage: STree rmq(n);rmq.init(x);rmq.upd(i,v);rmq.query(s,e);

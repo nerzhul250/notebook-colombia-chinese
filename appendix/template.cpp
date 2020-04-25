@@ -8,7 +8,6 @@
 #define SZ(s) int(s.size())
 
 using namespace std;
-
 int main(){FIN;
     return 0;
 }

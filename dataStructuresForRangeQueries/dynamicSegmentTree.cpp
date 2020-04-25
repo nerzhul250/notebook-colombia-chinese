@@ -1,12 +1,3 @@
-#include <bits/stdc++.h>
-
-#define ff first
-#define ss second
-#define mp make_pair
-#define pb push_back
-#define fore(i,low,n) for(int i=low;i<n;i++)
-
-using namespace std;
 typedef long long int ll;
 ll ini=0;
 ll fin=((1LL)<<60);

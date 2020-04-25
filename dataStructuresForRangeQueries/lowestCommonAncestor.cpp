@@ -1,11 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cmath>
-#include <algorithm>
-
-using namespace std;
-
 typedef pair<int,int> ii;
 typedef vector<int> vi;
 
