@@ -1,3 +1,4 @@
+//O(n^2 * m^2) spimproved bellman ford
 struct Edge
 {
     int from, to, capacity, cost;

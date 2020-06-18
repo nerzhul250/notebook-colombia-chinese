@@ -26,3 +26,15 @@ struct pt {  // for 3D add z coordinate
 };
 pt ccw90(1,0);
 pt cw90(-1,0);
+//REMEMBER U DIMP SHIT
+int isEmptyTriangle(pt a, pt b, pt c) {
+	for (int i = 0; i < m; i++) {
+		if (thePoints[i] == a || thePoints[i] == b || thePoints[i] == c)
+			continue;
+		if (((thePoints[i]-a)%(b-a))*((thePoints[i]-a)%(c-a))< 0 && 
+			((thePoints[i]-b)%(a-b))*((thePoints[i]-b)%(c-b))< 0 &&
+			((thePoints[i]-c)%(a-c))*((thePoints[i]-c)%(b-c))< 0)
+			return 0;
+	}
+	return 1;
+}

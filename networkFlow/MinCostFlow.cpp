@@ -1,4 +1,4 @@
-//O(N^3 * M) N nodes, M edges
+//O(N^3 * M) N nodes, M edges dijstras one
 const int INF = 1e9;
 
 struct rib {

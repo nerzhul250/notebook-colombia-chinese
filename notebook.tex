@@ -27,7 +27,7 @@
 \subsection{Eulers totient Function}
 \cppfile{mathyStuff/eulerTotientFunction.cpp}
 \subsection{Sum of divisors}
-%\cppfile{mathyStuff/eulerTotientFunctin.cpp}
+%\cppfile{mathyStuff/eulerTotientFunction.cpp}
 \subsection{Garners algorithm}
 \cppfile{mathyStuff/garnersAlgorithm.cpp}
 \subsection{Chinese remainder theorem}
@@ -66,7 +66,12 @@
 \cppfile{mathyStuff/intersectionOfTwoCircles.cpp}
 \subsection{Newton's Expansion}
 \subsection{Modular inverse of 2 of any odd modulo}
-
+\subsection{Domino tiling: nxm grid}
+{
+number of different tilings=$\prod_{j=1}^{\lceil{\frac{m}{2}}\rceil} \prod_{k=1}^{\lceil{\frac{n}{2}}\rceil}4({\cos^2{\frac{{\pi}j}{m+1}}}+{\cos^2{\frac{{\pi}k}{n+1}}})$
+}
+\subsection{Complex numbers}
+\cppfile{mathyStuff/complexNumbers.cpp}
 
 \section{Combinatorics and Probability}
 \subsection{Combinations formula}
@@ -91,6 +96,9 @@
 \cppfile{dynamicProgramming/divideAndConquerDP.cpp}
 \subsection{Longest Increasing Subsequence}
 \cppfile{dynamicProgramming/longestIncreasingSubsequence.cpp}
+\subsection{LCIS}
+\cppfile{dynamicProgramming/longestCommonIncreasingSubsequence.cpp}
+
 
 
 \section{Geometry}

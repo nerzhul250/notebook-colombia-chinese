@@ -6,9 +6,11 @@
 #define ALL(s) s.begin(),s.end()
 #define FIN ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 #define SZ(s) int(s.size())
-
+#pragma GCC optimize ("O3")
+#pragma GCC target ("sse4")
 using namespace std;
 int main(){FIN;
+	
     return 0;
 }
 
