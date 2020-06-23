@@ -9,8 +9,6 @@
 #pragma GCC optimize ("O3")
 #pragma GCC target ("sse4")
 using namespace std;
-int main(){FIN;
-	
+int main(){FIN;	
     return 0;
 }
-
