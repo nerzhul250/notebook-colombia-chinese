@@ -1,5 +1,9 @@
 // polynomials must have a power of two degree
 //O(nlgn)
+//this is magic
+// #define MOD 998244353
+// #define RT 3
+// #define MAXN (1<<18)
 using cd = complex<double>;
 const double PI = acos(-1);
 

@@ -9,6 +9,7 @@
 #pragma GCC optimize ("O3")
 #pragma GCC target ("sse4")
 using namespace std;
+typedef long long int ll;
 int main(){FIN;	
     return 0;
 }

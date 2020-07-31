@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 //The problem of finding a discrete root is defined as follows. 
 //Given a prime n and two integers a and k, find all x for which:X^k congruent a(modn)
 //O(n sqrt(logn))
@@ -81,7 +83,7 @@ int main() {
     for (int cur = any_ans % delta; cur < n-1; cur += delta)
         ans.push_back(powmod(g, cur, n));
     sort(ans.begin(), ans.end());
-    printf("%d\n", ans.size());
+    printf("%d\n", (int)ans.size());
     for (int answer : ans)
         printf("%d ", answer);
 }

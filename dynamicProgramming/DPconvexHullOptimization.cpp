@@ -21,7 +21,7 @@ struct Line {
 struct CHT {
     vector<Line> lines;
 
-    void addLine(const Line& l) {
+    void addLine(const Line& l) {//Lines must be added in order of decreasing slope
         while (lines.size() >= 2 && Line::intersect(l, lines.end()[-1]).x > Line::intersect(l, lines.end()[-2]).x) {
             lines.pop_back();
         }
