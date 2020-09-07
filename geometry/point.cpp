@@ -38,3 +38,28 @@ int isEmptyTriangle(pt a, pt b, pt c) {
 	}
 	return 1;
 }
+//check if two segments intersect without doubles
+typedef pair<pt,pt> seg;
+bool intersect(seg sg1,seg sg2){
+	ll o1=sg1.ff.orient(sg2.ff,sg2.ss);
+	ll o2=sg1.ss.orient(sg2.ff,sg2.ss);
+	if(o1==0 && o2==0){
+		return max(min(sg1.ff.x,sg1.ss.x),min(sg2.ff.x,sg2.ss.x))<=min(max(sg1.ff.x,sg1.ss.x),max(sg2.ff.x,sg2.ss.x)) &&
+			   max(min(sg1.ff.y,sg1.ss.y),min(sg2.ff.y,sg2.ss.y))<=min(max(sg1.ff.y,sg1.ss.y),max(sg2.ff.y,sg2.ss.y));
+	}
+	bool one=false;
+	if(o1==0 || o2==0){
+		one=true;
+	}else{
+		one=(o1<0 && o2>0)||(o2<0 && o1>0);
+	}
+	ll o3=sg2.ff.orient(sg1.ff,sg1.ss);
+	ll o4=sg2.ss.orient(sg1.ff,sg1.ss);
+	bool two=false;
+	if(o3==0 || o4==0){
+		two=true;
+	}else{
+		two=(o3<0 && o4>0)||(o4<0 && o3>0);
+	}
+	return one && two;
+}

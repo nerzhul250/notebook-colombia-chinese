@@ -2,7 +2,7 @@
 bool truth[MAXN]; // truth[cmp[i]]=value of variable i (2SAT)
 int nvar;int neg(int x){return MAXN-1-x;} // (2SAT)
 vector<int> g[MAXN];
-int n,lw[MAXN],idx[MAXN],qidx,cmp[MAXN],qcmp;
+int lw[MAXN],idx[MAXN],qidx,cmp[MAXN],qcmp;
 stack<int> st;
 void tjn(int u){
 	lw[u]=idx[u]=++qidx;
@@ -24,12 +24,13 @@ void tjn(int u){
 void scc(){
 	memset(idx,0,sizeof(idx));qidx=0;
 	memset(cmp,-1,sizeof(cmp));qcmp=0;
-	fore(i,0,n)if(!idx[i])tjn(i);
+	fore(i,0,MAXN)if(!idx[i])tjn(i);
 }
 // Only for 2SAT:
 void addor(int a, int b){g[neg(a)].pb(b);g[neg(b)].pb(a);}
+void addcon(int a,int b){g[a].pb(b);g[neg(b)].pb(neg(a));}
 bool satisf(int _nvar){
-	nvar=_nvar;n=MAXN;scc();
+	nvar=_nvar;scc();
 	fore(i,0,nvar)if(cmp[i]==cmp[neg(i)])return false;
 	return true;
 }
